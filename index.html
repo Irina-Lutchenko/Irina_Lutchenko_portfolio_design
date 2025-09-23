@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ирина Лученко | Стратегический дизайнер</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #2d3748;
+            --secondary: #4a5568;
+            --accent: #718096;
+            --light: #f7fafc;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 250, 252, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(74, 85, 104, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            color: var(--secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--accent);
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            text-align: center;
+        }
+        
+        .skills {
+            margin-top: 40px;
+        }
+        
+        .skills h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .tools-list {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .tools-category {
+            margin-bottom: 25px;
+        }
+        
+        .tools-category h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            text-align: left;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .tools-category ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            line-height: 1.4;
+        }
+        
+        .tools-category li {
+            padding: 5px 0;
+            font-size: 16px;
+            color: var(--secondary);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .tools-category li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+            top: 7px;
+        }
+        
+        .skills-note {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--accent);
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .portfolio-header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .portfolio-disclaimer {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: #fffbeb;
+            border-left: 4px solid #ecc94b;
+            border-radius: 8px;
+            font-weight: 500;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            height: 300px;
+            background: linear-gradient(45deg, #f0f4f8, #e2e8f0);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(45, 55, 72, 0.8);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-overlay h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .contact-header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .contact-item p, .contact-item a {
+            color: var(--secondary);
+            font-size: 18px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 50px 0;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tools-category h4 {
+                font-size: 16px;
+            }
+            
+            .tools-category li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Irina Lutchenko</a>
+                <nav class="nav-links">
+                    <a href="#about">Обо мне</a>
+                    <a href="#portfolio">Портфолио</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Стратегический дизайнер<br>для маркетплейсов</h1>
+            <p class="hero-subtitle">Создаю визуал, который превращает взгляды в покупки</p>
+            <p>Эффективные рекламные объявления с продуманным визуалом для Wildberries, OZON, Яндекс Маркет и других платформ</p>
+            <a href="#contact" class="btn">Связаться со мной</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Обо мне</h2>
+                    <p>Я — стратегический дизайнер, который видит товар глазами покупателя.</p>
+                    <p>Моя цель — создавать визуальный контент, который не просто красив, но и эффективно продает. Я понимаю психологию потребителя на маркетплейсах и создаю дизайн, который вызывает доверие и желание купить.</p>
+                    
+                    <div class="skills">
+                        <h3>Рабочие инструменты</h3>
+                        <div class="tools-list">
+                            <div class="tools-category">
+                                <h4>Графические программы</h4>
+                                <ul>
+                                    <li>Figma</li>
+                                    <li>Canva</li>
+                                    <li>Supa</li>
+                                </ul>
+                            </div>
+                            <div class="tools-category">
+                                <h4>ИИ-визуал</h4>
+                                <ul>
+                                    <li>Midjourney</li>
+                                    <li>DALL·E</li>
+                                    <li>Stable Diffusion</li>
+                                    <li>Leonardo</li>
+                                    <li>Recraft</li>
+                                    <li>Shedevrum</li>
+                                    <li>Ideogram</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="skills-note">Список рабочих инструментов постоянно пополняется, так как технологии не стоят на месте.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>Примеры работ</h2>
+                <div class="portfolio-disclaimer">
+                    <strong>Внимание:</strong> Представленные работы являются сгенерированными образцами. Это лишь примеры стиля и подхода. Работы с реальными заказчиками не демонстрируются в соответствии с правилами корпоративной этики.
+                </div>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://drive.google.com/uc?id=1eQ9X-xGLYgUeYLgNhjx0U0qH_BRLmq4Y" alt="Пример работы" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="portfolio-overlay">
+                        <h3>Пример работы</h3>
+                        <p>Это изображение является частью портфолио</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://i.imgur.com/4oL9VtN.png" alt="Костюм классический" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="portfolio-overlay">
+                        <h3>Костюм классический</h3>
+                        <p>Баланс строгости и женственности</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ff6b6b, #ee5a24); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">
+                        Дизайн для косметики
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Крем для рук</h3>
+                        <p>Элегантный баланс строгости и женственности</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #4ecdc4, #44a08d); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">
+                        Дизайн для товаров для детей
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Влажные салфетки</h3>
+                        <p>Рекомендовано экспертами для детей 3+</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #a55eea, #8e54e9); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">
+                        Дизайн для кухонных товаров
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Керамический топпер</h3>
+                        <p>Для комфортных цветов, 1.7л</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #f093fb, #f5576c); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">
+                        Дизайн для бытовой техники
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Тостер 2-slice</h3>
+                        <p>Гарантия, брек-система, шнур</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #43cea2, #185a9d); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 18px;">
+                        Дизайн для товаров для дома
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Бумажные полотенца</h3>
+                        <p>100% переработанное волокно, гипоаллергенно</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ff9a9e, #fecfef); display: flex; align-items: center; justify-content: center; color: #333; font-weight: bold; font-size: 18px;">
+                        Дизайн для fashion
+                    </div>
+                    <div class="portfolio-overlay">
+                        <h3>Верхняя одежда</h3>
+                        <p>Размеры 42-56, экстрактом ромашки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Связаться со мной</h2>
+                <p>Готова обсудить ваш проект и создать эффективный визуал, который увеличит ваши продажи</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Телефон</h3>
+                    <p>+7 (982) 545-18-78</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <a href="mailto:IrinaLuch21@yandex.ru">IrinaLuch21@yandex.ru</a>
+                </div>
+                <div class="contact-item">
+                    <h3>Telegram</h3>
+                    <a href="https://t.me/Lutchenko_Irina" target="_blank">@Lutchenko_Irina</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Ирина Лученко. Стратегический дизайнер для маркетплейсов.</p>
+                <p>Создаю визуал, который работает на результат</p>
+                <div class="social-links">
+                    <a href="https://t.me/Lutchenko_Irina" class="social-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.662 7.53c-.144 0-.43.074-.645.219l-2.52 1.587 1.222 3.74c.09.305.057.477-.072.615-.19.202-.38.226-.56.033l-1.67-1.51-1.02 8.15c-.034.267-.155.39-.315.39-.08 0-.17-.017-.26-.052l-.12-.05c-.08-.03-.17-.08-.26-.14-.09-.06-.16-.13-.22-.21-.06-.08-.11-.17-.14-.27l-2.29-8.85c-.03-.12-.01-.23.06-.32.07-.09.17-.14.29-.14.06 0 .12.01.18.03l9.52 3.24c.22.075.39.09.515.045.125-.045.215-.15.27-.315.054-.165.03-.36-.07-.595l-1.68-3.93c-.06-.135-.15-.24-.27-.315-.12-.075-.285-.12-.495-.135z"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:IrinaLuch21@yandex.ru" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
