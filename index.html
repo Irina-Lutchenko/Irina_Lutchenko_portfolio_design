@@ -161,6 +161,7 @@
         }
         
         .about-text p {
+            font-size: 18px;
             margin-bottom: 20px;
             color: var(--secondary);
             text-align: center;
@@ -178,17 +179,24 @@
         }
         
         .tools-list {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
         }
         
         .tools-category {
-            margin-bottom: 25px;
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: left;
         }
         
         .tools-category h4 {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 15px;
             color: var(--primary);
             text-align: left;
@@ -204,8 +212,9 @@
         }
         
         .tools-category li {
-            padding: 5px 0;
-            font-size: 16px;
+            padding: 3px 0;
+            font-size: 18px;
+            line-height: 1.4;
             color: var(--secondary);
             position: relative;
             padding-left: 30px;
@@ -415,6 +424,18 @@
             .tools-category li {
                 font-size: 14px;
             }
+
+            .tools-list {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+    
+            .tools-category {
+               width: 100%;
+               max-width: 600px;
+               text-align: left;
+            }
         }
     </style>
 </head>
@@ -461,14 +482,6 @@
                         <h3>Рабочие инструменты</h3>
                         <div class="tools-list">
                             <div class="tools-category">
-                                <h4>Графические программы</h4>
-                                <ul>
-                                    <li>Figma</li>
-                                    <li>Canva</li>
-                                    <li>Supa</li>
-                                </ul>
-                            </div>
-                            <div class="tools-category">
                                 <h4>ИИ-визуал</h4>
                                 <ul>
                                     <li>Midjourney</li>
@@ -480,6 +493,15 @@
                                     <li>Ideogram</li>
                                 </ul>
                             </div>
+                            <div class="tools-category">
+                                <h4>Графические программы</h4>
+                                <ul>
+                                    <li>Figma</li>
+                                    <li>Canva</li>
+                                    <li>Supa</li>
+                                </ul>
+                            </div>
+                            
                         </div>
                         <p class="skills-note">Список рабочих инструментов постоянно пополняется, так как технологии не стоят на месте.</p>
                     </div>
